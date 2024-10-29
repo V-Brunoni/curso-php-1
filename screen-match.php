@@ -3,7 +3,7 @@
 echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
-$anoLancamneto = 2022;
+$anoLancamneto = $argv[1] ?? 2022;
 
 $somaNotas = 9;
 $somaNotas += 6;
@@ -16,9 +16,6 @@ $planoPrime = true;
 
 $incluidoNoPlano = $planoPrime || $anoLancamneto < 2020;
 
-echo $notaFilme;
-echo "\n";
-echo $incluidoNoPlano;
-echo "\n";
-
-
+echo "Nome do filme: " . $nomeFilme . "\n";
+echo "Nota do filme: " . $notaFilme . "\n";
+echo "Ano de lançamento: $anoLancamneto\n";
