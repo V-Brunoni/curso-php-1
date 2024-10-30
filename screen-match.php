@@ -3,15 +3,25 @@
 echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
-$anoLancamento = $argv[1] ?? 2022;
+//$nomeFilme = "Thor: Ragnarok";
+//$nomeFilme = "Se beber não case";
 
-$somaNotas = 9;
-$somaNotas += 6;
-$somaNotas += 8;
-$somaNotas += 7.5;
-$somaNotas += 5;
+//$anoLancamento = $argv[1] ?? 2022;  //$argv recebe um valor informado pelo usuário, 1 é a posição dentro do array sendo 0 o nome do arquivo a ser executado no terminal
+$anoLancamento = 2022;
 
-$notaFilme = $somaNotas / 5;
+$quantidadeDeNotas = $argc - 1;
+$somaDeNotas = 0;
+
+for ($contador = 1; $contador < $argc; $contador ++) {
+    $somaDeNotas += $argv[$contador];
+}
+
+//$contador = 1;
+//while ($argv[$contador] != 0) {
+//    $somaDeNotas += $argv[$contador++];
+//}
+
+$notaFilme = $somaDeNotas / $quantidadeDeNotas;
 $planoPrime = true;
 
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
@@ -27,3 +37,14 @@ if ($anoLancamento > 2022) {
 } else {
     echo "Esse filme não é um lançamento!\n";
 }
+
+$genero =  match ($nomeFilme) {
+    "Top Gun - Maverick" => "Ação",
+    "Thor: Ragnarok" => "Super-herói",
+    "Se beber não case" => "Comédia",
+    default => "Gênero desconhecido",
+};
+
+echo "O gênero do filme é: $genero\n";
+
+echo "$argc\n"; // exibe a quantidade que foi informada dentro do $argv
